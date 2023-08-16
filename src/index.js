@@ -1,5 +1,4 @@
 module.exports = function check(str, bracketsConfig) {
-	str = str.replace(/[^[\]{}()]/g);
 	bracketsConfig = [];
 	for (let key of str) {
 		if (key === '(' || key === '{' || key === '[') {

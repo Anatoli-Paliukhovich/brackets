@@ -15,6 +15,10 @@ module.exports = function check(str, bracketsConfig) {
 			if (bracketsConfig.pop() !== '[') {
 				return false;
 			}
+		} else {
+			if (str.length % 2 !== 0) {
+				return false;
+			}
 		}
 	}
 	return bracketsConfig.length === 0;

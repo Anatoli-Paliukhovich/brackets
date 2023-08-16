@@ -4,15 +4,15 @@ module.exports = function check(str, bracketsConfig) {
 		if (key === '(' || key === '{' || key === '[') {
 			bracketsConfig.push(key);
 		} else if (key === ')') {
-			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '(') {
+			if (bracketsConfig.pop() !== '(') {
 				return false;
 			}
 		} else if (key === '}') {
-			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '{') {
+			if (bracketsConfig.pop() !== '{') {
 				return false;
 			}
 		} else if (key === ']') {
-			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '[') {
+			if (bracketsConfig.pop() !== '[') {
 				return false;
 			}
 		}

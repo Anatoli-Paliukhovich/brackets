@@ -1,22 +1,18 @@
 module.exports = function check(str, bracketsConfig) {
 	bracketsConfig = [];
 	for (let key of str) {
-		if (key === '(' || key === '{' || key === '[' || key === '|') {
+		if (key === '(' || key === '{' || key === '[') {
 			bracketsConfig.push(key);
 		} else if (key === ')') {
-			if (bracketsConfig.pop() !== '(') {
+			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '(') {
 				return false;
 			}
 		} else if (key === '}') {
-			if (bracketsConfig.pop() !== '{') {
+			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '{') {
 				return false;
 			}
 		} else if (key === ']') {
-			if (bracketsConfig.pop() !== '[') {
-				return false;
-			}
-		} else if (key === '|') {
-			if (bracketsConfig.pop() !== '|') {
+			if (bracketsConfig.length === 0 || bracketsConfig.pop() !== '[') {
 				return false;
 			}
 		}

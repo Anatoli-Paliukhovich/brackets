@@ -1,7 +1,7 @@
 module.exports = function check(str, bracketsConfig) {
 	bracketsConfig = [];
 	for (let key of str) {
-		if (key === '(' || key === '{' || key === '[') {
+		if (key === '(' || key === '{' || key === '[' || key === '|') {
 			bracketsConfig.push(key);
 		} else if (key === ')') {
 			if (bracketsConfig.pop() !== '(') {
@@ -13,6 +13,10 @@ module.exports = function check(str, bracketsConfig) {
 			}
 		} else if (key === ']') {
 			if (bracketsConfig.pop() !== '[') {
+				return false;
+			}
+		} else if (key === '|') {
+			if (bracketsConfig.pop() !== '|') {
 				return false;
 			}
 		}
